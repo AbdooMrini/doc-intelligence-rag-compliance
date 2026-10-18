@@ -1,0 +1,30 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Dependencies
+/node_modules
+
+# Java / Maven
+/backend/target
+/backend/*.jar
+/backend/*.war
+/backend/.mvn
+/backend/mvnw
+/backend/mvnw.cmd
+
+# Next.js
+/frontend/.next
+/frontend/out
+
+# IDE
+.idea
+.vscode
+*.iml
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.production

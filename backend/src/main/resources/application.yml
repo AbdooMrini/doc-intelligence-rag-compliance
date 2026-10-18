@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: doc-intelligence-rag-compliance
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/doc_intelligence}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:secret}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+    show-sql: false
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+app:
+  rag:
+    vector-dimension: 384
+    min-confidence-threshold: 0.65
+    hybrid-alpha: 0.7 # 0.7 semantic vector, 0.3 lexical keyword
+    max-top-k: 8
+  audit:
+    enforce-hash-verification: true
+    algorithm: SHA-256
